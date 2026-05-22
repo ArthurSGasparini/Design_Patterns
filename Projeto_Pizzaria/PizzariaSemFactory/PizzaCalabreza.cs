@@ -2,26 +2,27 @@
 
 namespace PizzariaSemFactory
 {
-    public class PizzaCalabreza
+    public class PizzaCalabreza : Pizza
     {
-        public string Nome { get; set; }
         public PizzaCalabreza()
         {
             Nome = "Pizza de Calabreza";
         }
-        public void Preparar()
+        
+        public override void Preparar()
         {
-            Console.WriteLine($"\nPreparando pizza de {Nome}");
+            Console.WriteLine($"Preparando {Nome}");
         }
 
-        public void Assar(int tempo)
+        public override void Assar(int tempo)
         {
-            Console.WriteLine($"Pizza de {Nome} assando por {tempo} min.");
+            Console.WriteLine($"Assando {Nome} por {tempo} minutos");
         }
 
-        public void Embalar()
+        public override void Embalar()
         {
-            Console.WriteLine($"Embalando pizza de {Nome}\n");
+            Console.WriteLine($"Embalando {Nome}");
         }
+
     }
 }

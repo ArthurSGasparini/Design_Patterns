@@ -6,33 +6,23 @@ namespace PizzariaSemFactory
     {
         public static void SolicitaPizza()
         {
-            PizzaCalabreza pizza1;
-            PizzaMussarela pizza2;
+           
             Console.WriteLine("======Pizzaria==========");
             Console.WriteLine("Informe a Pizza (C)alabreza ou (M)ussarela \n");
-            var pizzaEscolhida = Console.ReadLine().ToUpper();
-
-            if (pizzaEscolhida.Equals("C"))
+            var tipo = Console.ReadLine().ToUpper();
+            try 
             {
-                pizza1 = new PizzaCalabreza();
-                pizza1.Preparar();
-                pizza1.Assar(10);
-                pizza1.Embalar();
-                Console.WriteLine("pizza concluida");
+                Pizza pizza = PizzaSimpleFactory.CriaPizza(tipo);
+                pizza.Preparar();
+                pizza.Assar(15);
+                pizza.Embalar();
+                Console.WriteLine("Pizza pronta, bom apetite!");
             }
-            else if (pizzaEscolhida.Equals("M"))
+            catch (Exception ex)
             {
-                pizza2 = new PizzaMussarela();
-                pizza2.Preparar();
-                pizza2.Assar(10);
-                pizza2.Embalar();
-                Console.WriteLine("pizza concluida");
+                Console.WriteLine("Errop: " + ex.Message);
             }
-            else
-            {
-                Console.WriteLine("Essa pizza não existe");
-                return;
-            }
+            
         }
     }
 }
